@@ -28,3 +28,17 @@ Route::get('/get_available_slots', 'CalendarController@getAvailableSlots');
 Route::get('/insert', 'CalendarController@insertNew');
 
 Route::get('/clear_all', 'CalendarController@clearAll');
+
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admins'], function () {
+    Route::get('/', 'AdminController@index');
+
+    Route::get('/users', 'AdminController@userList');
+    Route::get('/bookings', 'AdminController@bookingsList');
+    Route::get('/user/block/{userid}', 'DashboardController@userBlock');
+
+    Route::get('/posts/list', 'DashboardController@postsList');
+    Route::get('/post/approve/{postid}', 'DashboardController@postApprove');
+    Route::get('/post/block/{postid}', 'DashboardController@postBlock');
+
+});
