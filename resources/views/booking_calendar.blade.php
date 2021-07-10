@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
 <ul class="nav nav-tabs d-lg-none d-sm-block" id="nav-tab" >
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" id="calendar-button" href="#">Calendar</a>

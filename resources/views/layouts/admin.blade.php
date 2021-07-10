@@ -38,7 +38,10 @@
         <a class="nav-link" href="/admin/accounts">Accounts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="/admin/drivers">Drivers</a>
+        <a class="nav-link " href="/admin/instructor">Instructors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/admin/suburb">Suburbs</a>
       </li>
     </ul>
 

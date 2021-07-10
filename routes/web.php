@@ -34,10 +34,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admi
     Route::get('/', 'AdminController@index');
 
     Route::get('/users', 'AdminController@userList');
-    Route::get('/bookings', 'AdminController@bookingsList');
-    Route::get('/user/block/{userid}', 'DashboardController@userBlock');
+    Route::get('/bookings/{id?}', 'AdminController@bookingsList');
+    Route::get('/edituser/{id}', 'AdminController@userEdit');
 
-    Route::get('/posts/list', 'DashboardController@postsList');
+    Route::get('/instructor/{id?}', 'AdminController@instructorList');
     Route::get('/post/approve/{postid}', 'DashboardController@postApprove');
     Route::get('/post/block/{postid}', 'DashboardController@postBlock');
 
