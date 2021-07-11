@@ -33,6 +33,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
+      <th scope="col">Direction</th>
       <th scope="col">Instructor</th>
       <th scope="col">Action</th>
 
@@ -43,6 +44,7 @@
 	<tr>
       <th scope="row">{{$suburb->id}}</th>
       <td>{{$suburb->suburb_name}}</td>
+      <td>{{$suburb->direction}}</td>
       <td>{{$suburb->instructor->name}}</td>
       <td><a class="btn btn-danger">Delete</a></td>
     </tr>

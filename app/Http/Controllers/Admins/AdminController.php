@@ -5,6 +5,7 @@ use App\User;
 use App\Booking;
 use App\Instructor;	
 use App\Suburb;
+use App\Account;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -91,6 +92,21 @@ class AdminController extends Controller
 			$suburbs=Suburb::find($id);
 		}
 		return view('view_suburbs_admin',compact('suburbs','instructors'));
+	}
+
+	function accountList(Request $request, $id=null){
+		$users = User::get();
+		if(!$id){
+			if (count($request->all())){
+				$account = new Account;
+				$input = $request->all();
+				$account->fill($input)->save();
+			}
+			$accounts=Account::get();
+		}else{
+			$accounts=Account::find($id);
+		}
+		return view('view_accounts_admin',compact('accounts','users'));
 	}
 
 	}

@@ -144,7 +144,7 @@ class CalendarController extends Controller
         $status = Booking::where('customer_id',Auth::user()->id)
                     ->where('booking_status','APPROVED')->count();
         if ($status == 0){
-            Booking::where('customer_id',Auth::user()->id)->delete();
+            Booking::where('customer_id',Auth::user()->id)->where('booking_status','ENTRY')->delete();
             return('Cleared All');
         }else if ($status > 0){
             return('Cannot Delete. Lessons already approved. Contact Admin');

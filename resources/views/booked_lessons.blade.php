@@ -34,21 +34,28 @@
         </button>
       </div>
       <div class="modal-body">
+        <form action="image_upload" method="post" id="payment_form" enctype="multipart/form-data">
+
+        <span class="text-danger">Total Classes :</span>
+        <input class="form-control" name="class_count" disabled value="{{$user_bookings->where('booking_status','ENTRY')->count()}}">
+
+        <span class="text-danger">Total Amount(in AUD) :</span>
         @if ($user_bookings->count()>=10)
-        <span class="text-danger">Total Classes :</span> 10<br>
-        <span class="text-danger">Total Cost :</span> {{$user_bookings->count()}}* AUD65 = AUD{{$user_bookings->count()*65}}
+        <input class="form-control" name="amount" disabled value="{{$user_bookings->where('booking_status','ENTRY')->count()*65}}">
         @else
-        <span class="text-danger">Total Classes :</span> {{$user_bookings->count()}}<br>
-        <span class="text-danger">Total Cost :</span> {{$user_bookings->count()}}* AUD75 = AUD{{$user_bookings->count()*75}}
+        <input class="form-control" name="amount" disabled value="{{$user_bookings->where('booking_status','ENTRY')->count()*75}}">
         @endif
+
         <hr>
         <small class="text-muted">Please Pay the amount to the following account and upload the screenshot. <br>Tip: Use mobile phone for ease.</small><br>
         <span class="text-muted"><u>Account Name</u>: Global Driving School Canberra<br><u>BSB</u>:XXXX<br> <u>Account</u>: XXXXXX</span><hr>
-        <input type="file">
+          @csrf
+          <input type="file" name="image">
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Finalise</button>
+        <button type="submit" class="btn btn-primary" form="payment_form">Finalise</button>
       </div>
     </div>
   </div>

@@ -29,6 +29,8 @@ Route::get('/insert', 'CalendarController@insertNew');
 
 Route::get('/clear_all', 'CalendarController@clearAll');
 
+Route::post('/image_upload', 'FormController@imageUploadPost');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admins'], function () {
     Route::get('/', 'AdminController@index');
@@ -39,6 +41,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admi
 
     Route::get('/instructor/{id?}', 'AdminController@instructorList');
     Route::get('/suburb/{postid?}', 'AdminController@suburbList');
-    Route::get('/post/block/{postid}', 'DashboardController@postBlock');
+    Route::get('/accounts/{id?}', 'AdminController@accountList');
 
 });
