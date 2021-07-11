@@ -26,6 +26,9 @@ class HomeController extends Controller
     {
         $user_details = Auth::user();
         //dd(Auth::user()->bookings);
-        return view('home',['user_details' => $user_details, 'user_bookings' => Auth::user()->bookings]);
+        if ($user_details->is_admin == 1){
+        return redirect('/admin');
+    }
+    return view('home',['user_details' => $user_details, 'user_bookings' => Auth::user()->bookings]);
     }
 }

@@ -18,6 +18,6 @@ class AdminMiddleware
              return $next($request);
         }
 
-        return redirect('error');
+        return redirect('/login');
     }
 }
