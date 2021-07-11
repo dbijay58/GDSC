@@ -28,17 +28,27 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Payment Summary</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        @if ($user_bookings->count()>=10)
+        <span class="text-danger">Total Classes :</span> 10<br>
+        <span class="text-danger">Total Cost :</span> {{$user_bookings->count()}}* AUD65 = AUD{{$user_bookings->count()*65}}
+        @else
+        <span class="text-danger">Total Classes :</span> {{$user_bookings->count()}}<br>
+        <span class="text-danger">Total Cost :</span> {{$user_bookings->count()}}* AUD75 = AUD{{$user_bookings->count()*75}}
+        @endif
+        <hr>
+        <small class="text-muted">Please Pay the amount to the following account and upload the screenshot. <br>Tip: Use mobile phone for ease.</small><br>
+        <span class="text-muted"><u>Account Name</u>: Global Driving School Canberra<br><u>BSB</u>:XXXX<br> <u>Account</u>: XXXXXX</span><hr>
+        <input type="file">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Finalise</button>
       </div>
     </div>
   </div>

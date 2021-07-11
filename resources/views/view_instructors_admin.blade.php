@@ -44,7 +44,11 @@
       <td>{{$instructor->phone}}</td>
       <td>{{$instructor->email}}</td>
       <td>{{$instructor->start_suburb}}</td>
-      <td></td>
+      <td>
+        @foreach ($instructor->suburbs as $suburb)
+        <span class="badge badge-dark">{{$suburb->suburb_name}}</span>
+        @endforeach
+      </td>
     </tr>
 	@endforeach
 

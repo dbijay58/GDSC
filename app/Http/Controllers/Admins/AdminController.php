@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admins;
 use App\User;
 use App\Booking;
 use App\Instructor;	
+use App\Suburb;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -75,6 +76,21 @@ class AdminController extends Controller
 			$instructors=Instructor::find($id);
 		}
 		return view('view_instructors_admin',compact('instructors'));
+	}
+
+	function suburbList(Request $request, $id=null){
+		$instructors = Instructor::get();
+		if(!$id){
+			if (count($request->all())){
+				$suburb = new Suburb;
+				$input = $request->all();
+				$suburb->fill($input)->save();
+			}
+			$suburbs=Suburb::get();
+		}else{
+			$suburbs=Suburb::find($id);
+		}
+		return view('view_suburbs_admin',compact('suburbs','instructors'));
 	}
 
 	}

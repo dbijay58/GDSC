@@ -6,45 +6,45 @@
   <div class="form-row">
       
 
-      <label class="my-1 mr-2" for="instructor_name">Instructor Name</label>
-      <input id = "instructor_name" type="text" class="col form-control mr-1" name="name" placeholder="Enter Name" required>
+      <label class="my-1 mr-2" for="suburb_name">Suburb Name</label>
+      <input id = "suburb_name" type="text" class="col form-control mr-1" name="suburb_name" placeholder="Enter Name" required>
       
-      <label class="my-1 mr-2" for="instructor_phone">Phone</label>
-      <input id = "instructor_phone" type="text" class="col form-control mr-1" name="phone" placeholder="Enter Phone" required>
-      
-      <label class="my-1 mr-2" for="instructor_email">Email</label>
-      <input id = "instructor_email" type="text" class="col form-control mr-1" name="email" placeholder="Enter Email" required>
+      <label class="my-1 mr-2" for="instructor_id">Instructor</label>
+      <select name="instructor_id" class="form-control col mr-1">
+        @foreach ($instructors as $instructor)
+        <option value="{{$instructor->id}}">{{$instructor->name}}</option>
+        @endforeach
+      </select>
 
-      <label class="my-1 mr-2" for="instructor_suburb">Home Suburb</label>
-      <input id = "instructor_suburb" type="text" class="col form-control mr-1" name="start_suburb" placeholder="Enter Suburb" required>
+      <label class="my-1 mr-2" for="direction">Direction</label>
+      <select name="direction" class="form-control col mr-1">
+        <option value="N">North</option>
+        <option value="S">South</option>
+      </select>
 
-      <input type="submit" class='col btn btn-success' id='add_instructor_button' value='Add Instructor'>
+      <input type="submit" class='col-3 btn btn-success' id='add_instructor_button' value='Add Suburb'>
 </div>
     </form>
 <hr>
-<small class="text-muted">Instructor Details</small>
+<small class="text-muted">Suburb Details</small>
 <div class="mt-2 container table-responsive">
 	<table class="table table-sm table-bordered table-hover">
   <thead class="text-primary">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Email</th>
-      <th scope="col">Start Suburb</th>
-      <th scope="col">Suburbs</th>
+      <th scope="col">Instructor</th>
+      <th scope="col">Action</th>
 
     </tr>
   </thead>
   <tbody>
-  	@foreach ($instructors as $instructor)
+  	@foreach ($suburbs as $suburb)
 	<tr>
-      <th scope="row">{{$instructor->id}}</th>
-      <td>{{$instructor->name}}</td>
-      <td>{{$instructor->phone}}</td>
-      <td>{{$instructor->email}}</td>
-      <td>{{$instructor->start_suburb}}</td>
-      <td></td>
+      <th scope="row">{{$suburb->id}}</th>
+      <td>{{$suburb->suburb_name}}</td>
+      <td>{{$suburb->instructor->name}}</td>
+      <td><a class="btn btn-danger">Delete</a></td>
     </tr>
 	@endforeach
 

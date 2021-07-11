@@ -16,8 +16,9 @@ class CreateSuburbTable extends Migration
         Schema::create('suburb', function (Blueprint $table) {
             $table->id();
             $table->string('suburb_name');
-            $table->integer('instructor_id');
+            $table->unsignedBigInteger('instructor_id');
             $table->string('direction');
+            $table->foreign('instructor_id')->references('id')->on('instructors');
             $table->timestamps();
         });
     }

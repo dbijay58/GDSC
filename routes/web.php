@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admi
     Route::get('/edituser/{id}', 'AdminController@userEdit');
 
     Route::get('/instructor/{id?}', 'AdminController@instructorList');
-    Route::get('/post/approve/{postid}', 'DashboardController@postApprove');
+    Route::get('/suburb/{postid?}', 'AdminController@suburbList');
     Route::get('/post/block/{postid}', 'DashboardController@postBlock');
 
 });
